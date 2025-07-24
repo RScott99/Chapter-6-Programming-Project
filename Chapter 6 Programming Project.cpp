@@ -26,9 +26,9 @@ int main()
     const int REGIONS = 5;
     string regions[REGIONS] = {
         "Norht","South","East","West","Central"
-    }, regName, lowestReg;
+    };
+    string regName, lowestReg;
     int numAccidents, lowestAccidents;
-
 
 
 
@@ -48,7 +48,7 @@ void getRegInfo(string& regName, int& numAccidents) {
 
         if (numAccidents < 0) {
             std::cout << "Invalid Input, must be positive.\n";
-            std::cin.clear()
+            std::cin.clear();
         }
     } while (numAccidents < 0);
 }
