@@ -17,7 +17,7 @@ bool isLower(int a, int b);
 //returns true if int a < int b
 //false otherwise
 
-void showLowest(string lowestReg, int lowestAccidents);
+void showLowest(string regName, int numAccidents);
 //gets name of reg w/ lowest accidents, and num of accidents and displays them
 //does not return anything
 
@@ -30,8 +30,23 @@ int main()
     string regName, lowestReg;
     int numAccidents, lowestAccidents;
 
+    std::cout << "Safest Driving Area\n\n";
 
+    //initialize using first region
+    getRegInfo(regName, numAccidents);
+    lowestReg = regName;
+    lowestAccidents = numAccidents;
 
+    //Iterate through remaining regions
+    for (int j = 1; j < REGIONS; ++j) {
+        getRegInfo(regName, numAccidents);
+        if (isLower(numAccidents, lowestAccidents)) {
+            lowestReg = regName;
+            lowestAccidents = numAccidents;
+        }
+    }
+
+    showLowest(lowestReg, lowestAccidents);
 
     return 0;
 }
@@ -51,4 +66,14 @@ void getRegInfo(string& regName, int& numAccidents) {
             std::cin.clear();
         }
     } while (numAccidents < 0);
+}
+
+bool isLower(int a, int b) {
+    return (a <= b);
+}
+
+void showLowest(string regName, int numAccidents) {
+    std::cout << "\nThe Region with the lowest accident rate:\n";
+    std::cout << "Region: " << regName << "\n";
+    std::cout << "Number of Accidents: " << numAccidents << endl;
 }
