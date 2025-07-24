@@ -61,7 +61,7 @@ void getRegInfo(string& regName, int& numAccidents) {
         std::cout << "Enter # of accidents in " << regName << ": ";
         std::cin >> numAccidents;
 
-        if (numAccidents < 0) {
+        if (numAccidents < 0 || cin.fail()) {
             std::cout << "Invalid Input, must be positive.\n";
             std::cin.clear();
         }
