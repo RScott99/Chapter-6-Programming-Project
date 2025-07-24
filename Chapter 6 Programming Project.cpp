@@ -59,7 +59,7 @@ void getLength_Width(double& length, double& width) {
     do { //querying length value
         std::cout << "\nEnter the length of the rectangle: ";
         std::cin >> length;
-        if (length <= 0) { //validating positive length
+        if (length <= 0 || cin.fail()) { //validating positive length
             std::cout << "Invalid input, length must be positive.\n";
             std::cin.clear();
         }
@@ -68,7 +68,7 @@ void getLength_Width(double& length, double& width) {
     do { //querying width value
         std::cout << "Enter the width of the rectangle: ";
         std::cin >> width;
-        if (width <= 0) { //validating positive width
+        if (width <= 0 || cin.fail()) { //validating positive width
             std::cout << "Invalid input, width must be positive.\n";
             cin.clear();
         }
